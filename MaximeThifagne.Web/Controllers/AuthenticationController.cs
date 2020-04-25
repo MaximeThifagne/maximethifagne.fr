@@ -20,6 +20,7 @@ namespace MaximeThifagne.Controllers
         {
             UserCommand = userCommand;
         }
+
         public AuthenticationController()
         {
         }
