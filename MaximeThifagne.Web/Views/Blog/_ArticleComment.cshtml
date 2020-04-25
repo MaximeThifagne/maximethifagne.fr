@@ -1,0 +1,43 @@
+﻿@model MaximeThifagne.Models.ArticleViewModel
+
+<div class="commentForm">
+    <div class="form-horizontal">
+        <h3>Laissez un commentaire</h3>
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="input-form">
+            <span ng-model="articleId" ng-init="articleId = @Model.ArticleId"></span>
+            <p class="input-block-alone">
+                @Html.TextBoxFor(model => model.Comment.CommentatorName, new { placeholder = "Nom (obligatoire)", @ng_model = "Model.Comment.CommentatorName", @required = "", @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Comment.CommentatorName, "", new { @class = "text-danger" })
+            </p>
+        </div>
+        <div class="input-form">
+            <p class="input-block-alone">
+                @Html.TextBoxFor(model => model.Comment.CommentatorEmail, new { placeholder = "Email (obligatoire)", @ng_model = "Model.Comment.CommentatorEmail", @required = "", @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Comment.CommentatorEmail, "", new { @class = "text-danger" })
+            </p>
+        </div>
+        <div class="input-form">
+            <p class="input-block-alone">
+                @Html.TextBoxFor(model => model.Comment.CommentatorWebSite, new { placeholder = "Votre site web", @ng_model = "Model.Comment.CommentatorWebSite", @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Comment.CommentatorWebSite, "", new { @class = "text-danger" })
+            </p>
+        </div>
+        <br />
+        <div class="textarea-form">
+            @Html.TextAreaFor(model => model.Comment.CommentMessage, new { placeholder = "Votre message ...", @ng_model = "Model.Comment.CommentMessage", @required = "", @class = "form-control" })
+             @Html.ValidationMessageFor(model => model.Comment.CommentMessage, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group submitButton">
+            <div class="col-md-10">
+                <button class="btn btn-light sendMessage" ng-click="AddComment(Model.Comment)">Envoyer</button>
+            </div>
+        </div>
+    </div>
+    <div class="error" ng-show="saveErrors.length > 0">
+        <p><strong style="color:red;">Veuillez vérifier les champs suivant :</strong></p>
+        <ul>
+            <li ng-repeat="error in saveErrors">{{error.ErrorMessage}}</li>
+        </ul>
+    </div>
+</div>

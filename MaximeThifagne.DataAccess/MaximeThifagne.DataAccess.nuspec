@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<package>
+  <metadata>
+    <id>MaximeThifagne.DataAccess</id>
+    <version>1.0.18</version>
+    <title>Package Nuget d'accés aux données</title>
+    <authors>Maxime Thifagne</authors>
+    <owners>Maxime Thigfagne</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>
+        Package pour l'accès au données
+    </description>
+    <releaseNotes>Ajout de la méthode de récupéraion des articles</releaseNotes>
+    <copyright>Copyright 2020 Maxime Thifagne</copyright>
+    <dependencies>
+      <dependency id="MaximeThifagne.DTO" version="1.0.12" />
+      <dependency id="MaximeThifagne.Entity" version="1.0.14" />
+    </dependencies>
+  </metadata>
+</package>

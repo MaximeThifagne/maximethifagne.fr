@@ -1,0 +1,40 @@
+﻿@{
+    ViewBag.Title = "Contact";
+}
+
+<div class="main-content">
+    <div class="fusion-row">
+        <div class="main-data">
+            <h1>Maxime Thifagne - Freelancer</h1>
+            <h2>Création de site internet en Rhônes Alpes</h2>
+            <p>
+                Vous avez un projet, un besoin spécifique pour améliorer votre visibilité sur internet ?
+                Je suis a votre écoute pour repondre au mieux a vos besoins.
+            </p>
+            <p>
+                Que ce soit pour du référencement, de la création ou encore du conseils en visibilité.
+                N'hésitez pas a prendre contact avec moi pour que l'on discute autour de votre projet.
+            </p>
+            <div class="contact-form" style="width:100% !important">
+                @Html.Partial("_ContactForm")
+            </div>
+        </div>
+        <div class="sub-data">
+            <div>
+                <img id="contactLogo" src="~/Content/Img/businessman-2956974_1920.jpg" />
+            </div>
+            <div id="devis">
+                <h3>Votre projet est unique</h3>
+                <p><strong>Demandez un devis</strong></p>
+            </div>
+            <div id="adress">
+                <p>
+                    <strong>Maxime Thifagne</strong> <br>
+                    41 rue Rudyard Kipling<br>
+                    73100, Aix les bains<br>
+                    <span class="fa fa-phone">  +33 7 83 73 90 23</span>
+                </p>                
+            </div>
+        </div>
+    </div>
+</div>

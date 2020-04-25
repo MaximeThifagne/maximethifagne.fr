@@ -1,0 +1,190 @@
+﻿<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Maxime Thifagne</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/javascript")
+    @Scripts.Render("~/bundles/moduleScript")
+</head>
+<body>
+    <header>
+        <div class="content-header">
+            <div class="text-header">
+                <p style="padding:7px 20px 0 0;">Besoin d'un conseil, d'un avis ? <a href="mailto:contact@maximethifagne.fr">Contactez-moi</a> vite !</p>
+            </div>
+        </div>
+    </header>
+    <div class="wrapper">
+        <div class="logo">
+            <a href="@Url.Action("Index","Home")">
+                <img src="~/Content/Img/Logo.png" height="50" />
+            </a>
+        </div>
+        <div class="menu-top">
+            <nav class="large-menu">
+                <div>
+                    <ul class="menu-entry">
+                        <li>
+                            <a id="homemenu" href="@Url.Action("Index", "Home")">accueil</a>
+                        </li>
+                        <li>
+                            <a id="blogmenu" href="@Url.Action("ListArticles", "Blog")">blog</a>
+                        </li>
+                        <li>
+                            <a id="contactmenu" href="@Url.Action("Contact", "Home")">contact</a>
+                        </li>
+                        @if (!Request.IsAuthenticated)
+                        {
+                            <li>
+                                <a class="fa fa-sign-in" href="@Url.Action("Login", "Authentication")"></a>
+                            </li>
+                        }
+                        @if (Request.IsAuthenticated)
+                        {
+                            <li>
+                                <a class="fa fa-sign-out" href="@Url.Action("Logout", "Authentication")"></a>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </nav>
+            <!--Navbar-->
+            <nav class="mobile-menu navbar navbar-light ">
+
+
+                <!-- Collapse button -->
+                <button class="btn btn-light menu-button" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1"
+                        aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbartoggle">
+                        <i class="fa fa-bars fa-2x"></i>
+                    </span>
+                </button>
+
+                <!-- Collapsible content -->
+                <div class="collapse navbar-collapse" id="navbarSupportedContent1">
+
+                    <!-- Links -->
+                    <ul class="navbar-nav mr-auto mobile-menu-entry">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="@Url.Action("Index", "Home")">accueil</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("Contact", "Home")">contact</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("ListArticles", "Blog")">blog</a>
+                        </li>
+                        @if (Request.IsAuthenticated)
+                        {
+                            <li>
+                                <a class="nav-link fa fa-sign-out" href="@Url.Action("Logout", "Authentication")"></a>
+                            </li>
+                        }
+
+                    </ul>
+                    <!-- Links -->
+
+                </div>
+                <!-- Collapsible content -->
+
+            </nav>
+            <!--/.Navbar-->
+        </div>
+        <div class="content">
+            <div class="component">
+                @RenderBody()
+            </div>
+            <div class="social-media">
+                <div class="moduletable">
+                    <p>
+                        <a class="fa fa-linkedin" title="LinkedIn" href="https://www.linkedin.com/in/maxime-thifagne-70063a8b"></a>
+                        <a class="fa fa-facebook" title="Facebook" href="https://www.facebook.com/MaximeThifagneFreelance"></a>
+                        <a class="fa fa-twitter" title="Twitter" href="https://twitter.com/freelance_tm"></a>
+                        <a class="fa fa-instagram" title="Instagram" href="https://www.instagram.com/maxime_thifagne"></a>
+                        <a class="fa fa-envelope-o" title="Contactez moi" href="mailto:contact@maximethifagne.fr"></a>
+                    </p>
+                </div>
+            </div>
+            <div class="footer">
+                <footer>
+                    <div class="moduletable">
+                        <span>Maxime Thifagne</span> -
+                        <span>41 rue Rudyard Kipling, 73100 Aix les bains</span> -
+                        <a href="mailto:contact@maximethifagne.fr">contact@maximethifagne.fr</a>
+                    </div>
+                    <div class="moduletable">
+                        <span class="copyrightbanner"> &copy; @DateTime.Now.Year - Maxime Thifagne | All rights reserved | <a href="@Url.Action("LegalMention", "Home")">Mentions légales</a> | <a href="@Url.Action("UnderConstruction", "Home")">Plan du site</a></span>
+                    </div>
+                </footer>
+            </div>
+        </div>
+    </div>
+    @*<header>
+            <div class="contactbanner">
+                <p>Contact : <a href="mailto:contact@maximethifagne.fr">contact@maximethifagne.fr</a> | <a href="tel:0652550676">+33 6 52 55 06 76</a></p>
+            </div>
+            <div class="socialbanner">
+                <ul>
+                    <li>
+                        <a class="fa fa-linkedin" title="LinkedIn" href="https://www.linkedin.com/in/maxime-thifagne-70063a8b"></a>
+                    </li>
+                    <li>
+                        <a class="fa fa-facebook" title="Facebook" href="https://www.facebook.com/MaximeThifagneFreelance"></a>
+                    </li>
+                    <li>
+                        <a class="fa fa-twitter" title="Twitter" href="https://twitter.com/freelance_tm"></a>
+                    </li>
+                    <li>
+                        <a class="fa fa-instagram" title="Instagram" href="https://www.instagram.com/maxime_thifagne"></a>
+                    </li>
+                </ul>
+            </div>
+        </header>*@
+    @*<div class="header">
+            <div class="headerlogo">
+                <a href="@Url.Action("UnderConstruction", "Home")"><img src="~/Content/Img/logoreduce.png" /></a>
+            </div>
+            <div class="menu">
+                <ul>
+                    <li>
+                        <a class="active" href="@Url.Action("UnderConstruction", "Home")">ACCEUIL</a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("UnderConstruction", "Home")">CONTACT</a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("UnderConstruction", "Home")">BLOG</a>
+                    </li>
+                </ul>
+            </div>
+        </div>*@
+
+
+    @*<footer>
+            <div class="copyrightbanner"> &copy; @DateTime.Now.Year - Maxime Thifagne | All rights reserved | <a href="@Url.Action("LegalMention", "Home")">Mentions légales</a></div>
+            <div class="socialbanner">
+                <ul>
+                    <li>
+                        <a class="fa fa-linkedin" title="LinkedIn" href="https://www.linkedin.com/in/maxime-thifagne-70063a8b"></a>
+                    </li>
+                    <li>
+                        <a class="fa fa-facebook" title="Facebook" href="https://www.facebook.com/MaximeThifagneFreelance"></a>
+                    </li>
+                    <li>
+                        <a class="fa fa-twitter" title="Twitter" href="https://twitter.com/freelance_tm"></a>
+                    </li>
+                    <li>
+                        <a class="fa fa-instagram" title="Instagram" href="https://www.instagram.com/maxime_thifagne"></a>
+                    </li>
+                </ul>
+            </div>
+        </footer>*@
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>

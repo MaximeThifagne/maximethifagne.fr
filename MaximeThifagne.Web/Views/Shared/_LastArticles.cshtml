@@ -1,0 +1,12 @@
+﻿@model List<MaximeThifagne.Models.ArticleViewModel>
+<div>
+    <h4 id="lastArticles" class="categoriesTitle">Articles récents</h4>
+    <ul class="categoryList">
+        @foreach (var item in Model)
+        {
+        <li class="cat-item">
+            <a href="@Url.Action("Article", "Blog", new { articleId = item.ArticleId })">@item.ArticleTitle</a>
+        </li>
+        }
+    </ul>
+</div>

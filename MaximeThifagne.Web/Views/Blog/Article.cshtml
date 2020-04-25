@@ -1,0 +1,67 @@
+﻿@model MaximeThifagne.Models.ArticleViewModel
+
+<div class="main-content" ng-controller="BlogController">
+    <div class="fusion-row">
+        <div class="main-data">
+            @{
+                var base64 = Convert.ToBase64String(Model.Photo);
+                var imgSrc = String.Format("data:image/gif;base64,{0}", base64);
+            }
+            <div class="article-photo-full">
+                <img width="100%" src="@imgSrc" alt="Smiley face">
+            </div>
+            <div class="article-content-full">
+                <h1>@Model.ArticleTitle</h1>
+                <p>@Model.ArticleBody</p>
+            </div>
+            @foreach (var subArticle in Model.SubArticles)
+            {
+                if (subArticle.SubArticlePhoto.Length > 0)
+                {
+                    var subArticleBase64 = Convert.ToBase64String(subArticle.SubArticlePhoto);
+                    var subArticleImgSrc = String.Format("data:image/gif;base64,{0}", base64);
+                    <div class="article-photo-full">
+                        <img width="100%" src="@subArticleImgSrc" alt="Image">
+                    </div>
+                }
+                <div class="article-content-full">
+                    <h2>@subArticle.SubArticleTitle</h2>
+                    <p>@subArticle.SubArticleBody</p>
+                </div>
+            }
+            <div class="article-footer-full">
+                <p>@Model.ArticleCreationDate.ToString("dd MMMM yyyy") | @Model.ArticleUserFullName</p>
+            </div>
+            <div class="comment">
+                <div class="commentList">
+                    @if (Model.Comments.Count > 0)
+                    {
+                        <h3>@Model.Comments.Count commentaires</h3>
+                        <hr />
+                        foreach (var comment in Model.Comments)
+                        {
+                            <div class="comment-content">
+                                <span class="fa fa-user fa-4x comment-photo">
+                                </span>
+                                <p class="commentator">
+                                    @comment.CommentatorName - @comment.CommentDate.ToString("dd MMMM yyyy HH:mm")
+                                    @if (User.Identity.IsAuthenticated)
+                                    {
+                                        <span> - <a href="@Url.Action("DeleteComment", "Blog", new { commentId = comment.CommentId, articleId = Model.ArticleId })">[Supprimer]</a></span>
+                                    }
+                                </p>
+                                <p>@comment.CommentMessage</p>
+                            </div>
+                        }
+                        <hr />
+                    }
+                </div>
+                @Html.Partial("_ArticleComment")
+            </div>
+        </div>
+        <div class="sub-data">
+            @Html.Partial("_CategoryList")
+        </div>
+    </div>
+</div>
+

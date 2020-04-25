@@ -1,0 +1,50 @@
+﻿@model MaximeThifagne.Models.ContactViewModel
+
+<div class="form-horizontal" ng-controller="ContactController">
+    <hr style="width:80%" />
+    <form name="contactForm">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="input-form">
+            <p class="input-block block-name">
+                @Html.LabelFor(model => model.UserName)<span class="required">*</span>
+                @Html.TextBoxFor(model => model.UserName, new { placeholder = "Ex : John Doe", @ng_model = "Model.UserName", @required = "", @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+            </p>
+            <p class="input-block block-email">
+                @Html.LabelFor(model => model.UserEmail)<span class="required">*</span>
+                @Html.TextBoxFor(model => model.UserEmail, new { placeholder = "Ex : john-doe@email.fr", @ng_model = "Model.UserEmail", @required = "", @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.UserEmail, "", new { @class = "text-danger" })
+            </p>
+        </div>
+        <div class="input-form">
+            <p class="input-block block-website">
+                @Html.LabelFor(model => model.UserWebSite)
+                @Html.TextBoxFor(model => model.UserWebSite, new { placeholder = " Ex : www.john-doe.fr", @ng_model = "Model.UserWebSite", @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.UserWebSite, "", new { @class = "text-danger" })
+            </p>
+            <p class="input-block block-phone">
+                @Html.LabelFor(model => model.UserPhoneNumber)
+                @Html.TextBoxFor(model => model.UserPhoneNumber, new { placeholder = "Ex :06 01 02 03 04", @ng_model = "Model.UserPhoneNumber", @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.UserPhoneNumber, "", new { @class = "text-danger" })
+            </p>
+        </div>
+        <div class="textarea-form">
+            @Html.LabelFor(model => model.UserMessage)<span class="required">*</span>
+            @Html.TextAreaFor(model => model.UserMessage, new { placeholder = "Votre message ici ...", @ng_model = "Model.UserMessage", @required = "", @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.UserMessage, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group submitButton">
+            <div class="col-md-10">
+                <button class="btn btn-light sendMessage" ng-click="SendMessage(Model)">Envoyer</button>
+            </div>
+        </div>
+        <div class="error" ng-show="saveErrors.length > 0">
+            <p><strong style="color:red;">Veuillez vérifier les champs suivant :</strong></p>
+            <ul>
+                <li ng-repeat="error in saveErrors">{{error.ErrorMessage}}</li>
+            </ul>
+        </div>
+    </form>
+    <span class="required">* champ requis</span>
+</div>
+<div class="clear"></div>

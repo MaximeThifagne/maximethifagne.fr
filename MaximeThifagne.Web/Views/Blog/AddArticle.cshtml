@@ -1,0 +1,56 @@
+﻿@model MaximeThifagne.Models.ArticleViewModel
+
+@{
+    ViewBag.Title = "View";
+}
+
+<div class="main-content" ng-controller="BlogController">
+    <div class="fusion-row">
+        <div class="main-data fullwidth">
+            <h1>Créer un article</h1>
+            @using (Html.BeginForm("AddArticle", "Blog", FormMethod.Post, new { encType = "multipart/form-data" }))
+            {
+                <div class="form-horizontal">
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="input-form">
+                        <p class="input-block-alone">
+                            @Html.LabelFor(model => model.ArticleTitle, htmlAttributes: new { @class = "control-label col-md-2" })
+                            @Html.EditorFor(model => model.ArticleTitle, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.ArticleTitle, "", new { @class = "text-danger" })
+                        </p>
+                    </div>
+                    <div class="input-form">
+                        <p class="input-block-alone">
+                            @Html.LabelFor(model => model.ArticlePhoto, htmlAttributes: new { @class = "control-label col-md-2" })
+                            @Html.TextBoxFor(model => model.ArticlePhoto, new { type = "file", htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.ArticlePhoto, "", new { @class = "text-danger" })
+                        </p>
+                    </div>
+                    <div class="textarea-form">
+                        @Html.LabelFor(model => model.ArticleBody, htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.TextAreaFor(model => model.ArticleBody, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.ArticleBody, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="input-form">
+                        <p class="input-block">
+                            @Html.LabelFor(model => model.ArticleSource, htmlAttributes: new { @class = "control-label col-md-2" })
+                            @Html.EditorFor(model => model.ArticleSource, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.ArticleSource, "", new { @class = "text-danger" })
+                        </p>
+                        <p class="input-block">
+                            @Html.LabelFor(model => model.ArticleSourceLink, htmlAttributes: new { @class = "control-label col-md-10" })
+                            @Html.EditorFor(model => model.ArticleSourceLink, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.ArticleSourceLink, "", new { @class = "text-danger" })
+                        </p>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-5">
+                            <input type="submit" value="Create" class="btn btn-default" />
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

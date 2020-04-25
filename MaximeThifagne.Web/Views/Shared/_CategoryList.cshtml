@@ -1,0 +1,12 @@
+﻿@using MaximeThifagne.DTO.Enum;
+<div>
+    <h4 class="categoriesTitle">Catégories</h4>
+    <ul class="categoryList">
+        @foreach (var category in Enum.GetNames(typeof(CategoryEnum)))
+        {
+        <li class="cat-item">
+            <a href="@Url.Action("ListArticles", "Blog", new {category = category })">@category</a>
+        </li>
+        }
+    </ul>
+</div>

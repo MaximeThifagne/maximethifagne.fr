@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<package>
+  <metadata>
+    <id>MaximeThifagne.DTO</id>
+    <version>1.0.12.0</version>
+    <title>Package Nuget des DTOs</title>
+    <authors>Maxime Thifagne</authors>
+    <owners>Maxime Thigfagne</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>
+        Package contenant tout les DTOs
+    </description>
+    <releaseNotes>Add User properties</releaseNotes>
+    <copyright>Copyright 2020 Maxime Thifagne</copyright>
+  </metadata>
+</package>

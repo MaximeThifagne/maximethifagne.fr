@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<package>
+  <metadata>
+    <id>MaximeThifagne.Entity</id>
+    <version>1.0.14</version>
+    <title>Package Nuget des entites</title>
+    <authors>Maxime Thifagne</authors>
+    <owners>Maxime Thigfagne</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>
+        Package pour l'accès au entites
+    </description>
+    <releaseNotes>Ajout de propriete a la table article</releaseNotes>
+    <copyright>Copyright 2020 Maxime Thifagne</copyright>
+    <dependencies>
+      <dependency id="MaximeThifagne.DTO" version="1.0.12" />
+    </dependencies>
+  </metadata>
+</package>

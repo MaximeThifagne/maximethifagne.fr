@@ -1,0 +1,40 @@
+﻿@model MaximeThifagne.Models.LoginViewModel
+
+<div class="main-content">
+    <div class="fusion-row">
+        <div class="main-data loginForm">
+            <h1>Se connecter</h1>
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-horizontal">
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="input-form">
+                        <p class="input-block block-name">
+                            @Html.LabelFor(model => model.Login)<span class="required">*</span>
+                            @Html.TextBoxFor(model => model.Login, new { @required = "", @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.Login, "", new { @class = "text-danger" })
+                        </p>
+                        <p class="input-block block-email">
+                            @Html.LabelFor(model => model.Password)<span class="required">*</span>
+                            @Html.PasswordFor(model => model.Password, new { @required = "", @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                        </p>
+                    </div>
+                    <div class="form-group submitButton">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Se connecter" class="btn btn-default" />
+                        </div>
+                    </div>
+                </div>
+
+            }
+            <span class="required">* champ requis</span>
+            <div class="clear"></div>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

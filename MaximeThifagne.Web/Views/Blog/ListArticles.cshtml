@@ -1,0 +1,44 @@
+﻿@model List<MaximeThifagne.Models.ArticleViewModel>
+
+@{
+    ViewBag.Title = "Liste des Articles";
+}
+
+<div class="main-content" ng-controller="BlogController">
+    <div class="fusion-row">
+        <div class="main-data">
+            <h1>Liste des articles</h1>
+            @foreach (var item in Model)
+            {
+                var base64 = Convert.ToBase64String(item.Photo);
+                var imgSrc = String.Format("data:image/gif;base64,{0}", base64);
+                <article class="article">
+                    <div class="article-content">
+                        <a href="@Url.Action("Article", "Blog", new { articleId = item.ArticleId })">
+                            <img src="@imgSrc" alt="Smiley face" class="article-photo">
+                        </a>
+                        <a href="@Url.Action("Article", "Blog", new { articleId = item.ArticleId })"><h3>@item.ArticleTitle</h3></a>
+                        <p>@item.ArticleBody</p>
+                    </div>
+                    <div class="article-footer">
+                        <p>
+                            @item.ArticleCreationDate.ToString("dd MMMM yyyy") | Par : @item.ArticleUserFullName | Catégorie : <a href="@Url.Action("ListArticles", "Blog", new {category = item.Category })">@item.Category</a>
+                            @if (User.Identity.IsAuthenticated)
+                            {
+                                <span style="float:right"><a class="fa fa-trash" href="@Url.Action("DeleteArticle", "Blog", new { articleId = item.ArticleId })"></a></span>
+                            }
+                        </p>
+                    </div>
+                </article>
+            }
+            @if (User.Identity.IsAuthenticated)
+            {
+                <button id="addArticle" onclick="window.location.href='AddArticle'" type="button" class="btn btn-success btn-circle btn-lg" title="Ajouter un article"><i class="fa fa-plus"></i></button>
+            }
+        </div>
+        <div class="sub-data">
+            @Html.Partial("_CategoryList")
+            @Html.Partial("_LastArticles")
+        </div>
+    </div>
+</div>
