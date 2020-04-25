@@ -22,8 +22,7 @@ namespace MaximeThifagne.Controllers
         }
 
         public AuthenticationController()
-        {
-        }
+        { }
 
         [AllowAnonymous]
         public ActionResult Login() 
