@@ -49,5 +49,13 @@ namespace MaximeThifagne.Models
         public DateTime ArticleCreationDate { get; set; }
 
         public string ArticleUserFullName { get; set; }
+
+        public HtmlString GetArticlePreview()
+        {
+            if (this.ArticleBody.Length > 250)
+                return new HtmlString(this.ArticleBody.Substring(0, 250) + " [... Lire plus]");
+            else
+                return new HtmlString(this.ArticleBody);
+        }
     }
 }

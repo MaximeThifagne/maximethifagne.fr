@@ -18,14 +18,16 @@
                             <img src="@imgSrc" alt="Smiley face" class="article-photo">
                         </a>
                         <a href="@Url.Action("Article", "Blog", new { articleId = item.ArticleId })"><h3>@item.ArticleTitle</h3></a>
-                        <p>@item.ArticleBody</p>
+                        <p>@item.GetArticlePreview()</p>
                     </div>
                     <div class="article-footer">
                         <p>
                             @item.ArticleCreationDate.ToString("dd MMMM yyyy") | Par : @item.ArticleUserFullName | Catégorie : <a href="@Url.Action("ListArticles", "Blog", new {category = item.Category })">@item.Category</a>
                             @if (User.Identity.IsAuthenticated)
                             {
-                                <span style="float:right"><a class="fa fa-trash" href="@Url.Action("DeleteArticle", "Blog", new { articleId = item.ArticleId })"></a></span>
+                        <span style="float:right">
+                            <a class="fa fa-trash" href="@Url.Action("DeleteArticle", "Blog", new { articleId = item.ArticleId })"></a>
+                        </span>
                             }
                         </p>
                     </div>
