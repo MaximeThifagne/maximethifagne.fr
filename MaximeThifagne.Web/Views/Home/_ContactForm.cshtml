@@ -34,8 +34,8 @@
             @Html.ValidationMessageFor(model => model.UserMessage, "", new { @class = "text-danger" })
         </div>
         <div class="form-group submitButton">
-            <div class="col-md-10">
-                <button class="btn btn-light sendMessage" ng-click="SendMessage(Model)">Envoyer</button>
+            <div class="col-md-12">
+                <button class="btn btn-primary btn-lg btn-block" ng-click="SendMessage(Model)">Envoyer</button>
             </div>
         </div>
         <div class="error" ng-show="saveErrors.length > 0">
