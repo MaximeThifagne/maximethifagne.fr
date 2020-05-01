@@ -1,6 +1,8 @@
-﻿
+﻿using TypeLite;
+
 namespace MaximeThifagne.DTO
 {
+    [TsClass]
     public class SubArticleDto
     {
         public int SubArticleId { get; set; }

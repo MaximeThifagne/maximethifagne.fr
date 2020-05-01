@@ -187,6 +187,12 @@
     </Reference>
     <Reference Include="System.Net.Http.WebRequest">
     </Reference>
+    <Reference Include="TypeLite, Version=1.8.2.0, Culture=neutral, PublicKeyToken=8cd4b9c9ac23d744, processorArchitecture=MSIL">
+      <HintPath>..\packages\TypeLite.1.8.4\lib\net4\TypeLite.dll</HintPath>
+    </Reference>
+    <Reference Include="TypeLite.Net4, Version=1.8.2.0, Culture=neutral, PublicKeyToken=8cd4b9c9ac23d744, processorArchitecture=MSIL">
+      <HintPath>..\packages\TypeLite.1.8.4\lib\net4\TypeLite.Net4.dll</HintPath>
+    </Reference>
     <Reference Include="WebGrease, Version=1.5.2.14234, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
     </Reference>
@@ -1133,6 +1139,10 @@
     <Content Include="Scripts\test-bundles\angular-route.js" />
     <Content Include="Scripts\test-bundles\angular-sanitize.js" />
     <Content Include="Scripts\test-bundles\angular-touch.js" />
+    <Content Include="Scripts\TypeLite.Net4.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>TypeLite.Net4.d.ts</LastGenOutput>
+    </Content>
     <Content Include="Scripts\umd\popper-utils.js" />
     <Content Include="Scripts\umd\popper-utils.min.js" />
     <Content Include="Scripts\umd\popper.js" />
@@ -1170,6 +1180,7 @@
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Scripts\version.json" />
+    <Content Include="Scripts\Manager.ttinclude" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -1198,7 +1209,15 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="Scripts\Enums.ts">
+      <DependentUpon>TypeLite.Net4.tt</DependentUpon>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="Scripts\index.d.ts" />
+    <TypeScriptCompile Include="Scripts\TypeLite.Net4.d.ts">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TypeLite.Net4.tt</DependentUpon>
+    </TypeScriptCompile>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -1,9 +1,11 @@
 ﻿using MaximeThifagne.DTO.Enum;
 using System;
 using System.Collections.Generic;
+using TypeLite;
 
 namespace MaximeThifagne.DTO
 {
+    [TsClass]
     public class ArticleDto
     {
         public int ArticleId { get; set; }

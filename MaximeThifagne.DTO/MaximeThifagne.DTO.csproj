@@ -40,6 +40,12 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
+    <Reference Include="TypeLite, Version=1.8.2.0, Culture=neutral, PublicKeyToken=8cd4b9c9ac23d744, processorArchitecture=MSIL">
+      <HintPath>..\packages\TypeLite.Lib.1.8.4\lib\net4\TypeLite.dll</HintPath>
+    </Reference>
+    <Reference Include="TypeLite.Net4, Version=1.8.2.0, Culture=neutral, PublicKeyToken=8cd4b9c9ac23d744, processorArchitecture=MSIL">
+      <HintPath>..\packages\TypeLite.Lib.1.8.4\lib\net4\TypeLite.Net4.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ArticleDto.cs" />
@@ -52,6 +58,9 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

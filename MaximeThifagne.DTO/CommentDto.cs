@@ -1,9 +1,11 @@
 ﻿using System;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using TypeLite;
 
 namespace MaximeThifagne.DTO
 {
+    [TsClass]
     public class CommentDto
     {
         public int CommentId { get; set; }

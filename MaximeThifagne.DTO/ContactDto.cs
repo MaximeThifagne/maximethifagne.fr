@@ -1,6 +1,8 @@
-﻿
+﻿using TypeLite;
+
 namespace MaximeThifagne.DTO
 {
+    [TsClass]
     public class ContactDto
     {
         public string UserName { get; set; }

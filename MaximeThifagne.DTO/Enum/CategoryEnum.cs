@@ -1,5 +1,4 @@
-﻿
-namespace MaximeThifagne.DTO.Enum
+﻿namespace MaximeThifagne.DTO.Enum
 {
     public enum CategoryEnum
     {

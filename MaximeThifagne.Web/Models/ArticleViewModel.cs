@@ -38,11 +38,9 @@ namespace MaximeThifagne.Models
 
         public List<CommentDto> Comments { get; set; }
 
-        [Required]
         [Display(Name = "Source")]
         public string ArticleSource { get; set; }
 
-        [Required]
         [Display(Name = "Lien de la source")]
         public string ArticleSourceLink { get; set; }
 
